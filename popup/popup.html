@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Waves</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <div class="logo">🎵</div>
+      <h1>Music Waves</h1>
+      <p class="subtitle">Visualizer</p>
+    </div>
+
+    <button id="toggle-btn" class="main-btn">
+      <span id="btn-icon">▶</span>
+      <span id="btn-text">Start</span>
+    </button>
+
+    <div id="status" class="status hidden">
+      <span class="status-dot"></span>
+      <span id="status-text">Active</span>
+    </div>
+
+    <div class="section">
+      <label class="section-label">Style</label>
+      <div class="radio-group" id="style-group">
+        <label class="radio-card">
+          <input type="radio" name="style" value="bars" checked>
+          <span class="radio-label">█ Bars</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="style" value="circle">
+          <span class="radio-label">◎ Circle</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="style" value="wave">
+          <span class="radio-label">〰 Wave</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="style" value="particles">
+          <span class="radio-label">✦ Particles</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="section-label">Theme</label>
+      <div class="radio-group" id="theme-group">
+        <label class="radio-card">
+          <input type="radio" name="theme" value="neon" checked>
+          <span class="radio-label" style="color:#ff00ff">Neon</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="theme" value="ocean">
+          <span class="radio-label" style="color:#00aaff">Ocean</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="theme" value="sunset">
+          <span class="radio-label" style="color:#ff6b35">Sunset</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="theme" value="cyberpunk">
+          <span class="radio-label" style="color:#f72585">Cyber</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="theme" value="spotify">
+          <span class="radio-label" style="color:#1db954">Spotify</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="theme" value="rainbow">
+          <span class="radio-label" style="background:linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Rainbow</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="section-label">Background</label>
+      <div class="radio-group" id="bg-group">
+        <label class="radio-card">
+          <input type="radio" name="bg" value="glass" checked>
+          <span class="radio-label">Glass</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="bg" value="blur">
+          <span class="radio-label">Blur</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="bg" value="black">
+          <span class="radio-label">Black</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="bg" value="transparent">
+          <span class="radio-label">Clear</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="slider-row">
+        <label class="section-label">Sensitivity</label>
+        <span id="sens-val" class="slider-val">1.0</span>
+      </div>
+      <input type="range" id="sensitivity" class="slider" min="0.1" max="3" step="0.1" value="1.0">
+    </div>
+
+    <div class="section">
+      <div class="slider-row">
+        <label class="section-label">Opacity</label>
+        <span id="opac-val" class="slider-val">0.9</span>
+      </div>
+      <input type="range" id="opacity" class="slider" min="0.1" max="1" step="0.05" value="0.9">
+    </div>
+
+    <div class="section">
+      <div class="slider-row">
+        <label class="section-label">FFT Size</label>
+      </div>
+      <select id="fftSize" class="fft-select">
+        <option value="128">128</option>
+        <option value="256">256</option>
+        <option value="512" selected>512</option>
+        <option value="1024">1024</option>
+        <option value="2048">2048</option>
+      </select>
+    </div>
+
+    <div id="error-msg" class="error hidden"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

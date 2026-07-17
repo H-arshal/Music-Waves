@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Music Waves Visualizer",
+  "version": "1.0.0",
+  "description": "Capture tab audio and render animated visualizations over any webpage.",
+  "permissions": [
+    "tabCapture",
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting",
+    "offscreen"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "utils/colors.js",
+        "visualizers/bars.js",
+        "visualizers/wave.js",
+        "visualizers/circle.js",
+        "visualizers/particles.js",
+        "overlay/overlay.js"
+      ],
+      "css": ["overlay/overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
+}

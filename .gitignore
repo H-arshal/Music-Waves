@@ -1,0 +1,27 @@
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor / IDE configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Extension development artifacts
+*.crx
+*.pem
+
+# Local agent environments
+.gemini/
+brain/
+scratch/
+task.md
+walkthrough.md
+implementation_plan.md
+analysis_results.md

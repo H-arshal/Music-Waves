@@ -8,125 +8,227 @@
 </head>
 <body>
   <div class="popup-container">
-    <div class="header">
-      <div class="logo">🎵</div>
-      <h1>Music Waves</h1>
-      <p class="subtitle">Visualizer</p>
-    </div>
+    <!-- Header -->
+    <header class="header">
+      <div class="app-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="2.5" y="9.5" width="2.5" height="5" rx="1.25" fill="#3b82f6" />
+          <rect x="7.5" y="5.5" width="2.5" height="13" rx="1.25" fill="#2563eb" />
+          <rect x="12.5" y="3" width="2.5" height="18" rx="1.25" fill="#1d4ed8" />
+          <rect x="17.5" y="7.5" width="2.5" height="9" rx="1.25" fill="#2563eb" />
+          <circle cx="22.5" cy="12" r="1.25" fill="#60a5fa" />
+        </svg>
+      </div>
+      <div class="header-info">
+        <div class="title-row">
+          <h1>Music Waves</h1>
+          <span class="pro-badge">PRO</span>
+        </div>
+        <p class="subtitle">Audio Visualizer</p>
+      </div>
+    </header>
 
+    <!-- Main CTA Button -->
     <button id="toggle-btn" class="main-btn">
-      <span id="btn-icon">▶</span>
-      <span id="btn-text">Start</span>
+      <span id="btn-icon" class="btn-icon">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M4.5 2.8c-.8-.5-1.8.1-1.8 1.1v8.2c0 1 .9 1.6 1.8 1.1l7.2-4.1c.8-.5.8-1.7 0-2.2L4.5 2.8z"/>
+        </svg>
+      </span>
+      <span id="btn-text">Start Visualizer</span>
     </button>
 
+    <!-- Status pill when active -->
     <div id="status" class="status hidden">
       <span class="status-dot"></span>
-      <span id="status-text">Active</span>
+      <span id="status-text">Active — capturing tab audio</span>
     </div>
 
-    <div class="section">
-      <label class="section-label">Style</label>
-      <div class="radio-group" id="style-group">
-        <label class="radio-card">
+    <!-- Section 1: Visualizer Style -->
+    <div class="card">
+      <span class="card-title">VISUALIZER STYLE</span>
+      <div class="segmented-control" id="style-group">
+        <label class="seg-item">
           <input type="radio" name="style" value="bars" checked>
-          <span class="radio-label">█ Bars</span>
+          <span class="seg-btn">
+            <svg class="seg-icon" width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+              <rect x="2" y="7" width="2.2" height="7" rx="1.1"/>
+              <rect x="6.9" y="3" width="2.2" height="11" rx="1.1"/>
+              <rect x="11.8" y="8" width="2.2" height="6" rx="1.1"/>
+            </svg>
+            <span>Bars</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="seg-item">
           <input type="radio" name="style" value="circle">
-          <span class="radio-label">◎ Circle</span>
+          <span class="seg-btn">
+            <svg class="seg-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="8" cy="8" r="5.5"/>
+            </svg>
+            <span>Circle</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="seg-item">
           <input type="radio" name="style" value="wave">
-          <span class="radio-label">〰 Wave</span>
+          <span class="seg-btn">
+            <svg class="seg-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M2.5 8 C4.5 4.5, 6 4.5, 8 8 C10 11.5, 11.5 11.5, 13.5 8"/>
+            </svg>
+            <span>Wave</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="seg-item">
           <input type="radio" name="style" value="particles">
-          <span class="radio-label">✦ Particles</span>
+          <span class="seg-btn">
+            <svg class="seg-icon" width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+              <circle cx="8" cy="8" r="1.4"/>
+              <circle cx="4.5" cy="5" r="1.2"/>
+              <circle cx="11.5" cy="5" r="1.2"/>
+              <circle cx="4.5" cy="11" r="1.2"/>
+              <circle cx="11.5" cy="11" r="1.2"/>
+            </svg>
+            <span>Dust</span>
+          </span>
         </label>
       </div>
     </div>
 
-    <div class="section">
-      <label class="section-label">Theme</label>
-      <div class="radio-group" id="theme-group">
-        <label class="radio-card">
+    <!-- Section 2: Color Palette -->
+    <div class="card">
+      <span class="card-title">COLOR PALETTE</span>
+      <div class="palette-grid" id="theme-group">
+        <label class="palette-chip">
           <input type="radio" name="theme" value="neon" checked>
-          <span class="radio-label" style="color:#ff00ff">Neon</span>
+          <span class="chip-content">
+            <span class="chip-dot" style="background:#ff2d55;"></span>
+            <span>Neon</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="palette-chip">
           <input type="radio" name="theme" value="ocean">
-          <span class="radio-label" style="color:#00aaff">Ocean</span>
+          <span class="chip-content">
+            <span class="chip-dot" style="background:#0284c7;"></span>
+            <span>Ocean</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="palette-chip">
           <input type="radio" name="theme" value="sunset">
-          <span class="radio-label" style="color:#ff6b35">Sunset</span>
+          <span class="chip-content">
+            <span class="chip-dot" style="background:#f59e0b;"></span>
+            <span>Sunset</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="palette-chip">
           <input type="radio" name="theme" value="cyberpunk">
-          <span class="radio-label" style="color:#f72585">Cyber</span>
+          <span class="chip-content">
+            <span class="chip-dot" style="background:#a855f7;"></span>
+            <span>Cyber</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="palette-chip">
           <input type="radio" name="theme" value="spotify">
-          <span class="radio-label" style="color:#1db954">Spotify</span>
+          <span class="chip-content">
+            <span class="chip-dot" style="background:#22c55e;"></span>
+            <span>Spotify</span>
+          </span>
         </label>
-        <label class="radio-card">
+        <label class="palette-chip">
           <input type="radio" name="theme" value="rainbow">
-          <span class="radio-label" style="background:linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Rainbow</span>
+          <span class="chip-content">
+            <span class="chip-dot" style="background:linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);"></span>
+            <span>Prism</span>
+          </span>
         </label>
       </div>
     </div>
 
-    <div class="section">
-      <label class="section-label">Background</label>
-      <div class="radio-group" id="bg-group">
-        <label class="radio-card">
+    <!-- Section 3: Canvas Backdrop -->
+    <div class="card">
+      <span class="card-title">CANVAS BACKDROP</span>
+      <div class="segmented-control" id="bg-group">
+        <label class="seg-item">
           <input type="radio" name="bg" value="glass" checked>
-          <span class="radio-label">Glass</span>
+          <span class="seg-btn">Frosted</span>
         </label>
-        <label class="radio-card">
+        <label class="seg-item">
           <input type="radio" name="bg" value="blur">
-          <span class="radio-label">Blur</span>
+          <span class="seg-btn">Blur</span>
         </label>
-        <label class="radio-card">
+        <label class="seg-item">
           <input type="radio" name="bg" value="black">
-          <span class="radio-label">Black</span>
+          <span class="seg-btn">Dark</span>
         </label>
-        <label class="radio-card">
+        <label class="seg-item">
           <input type="radio" name="bg" value="transparent">
-          <span class="radio-label">Clear</span>
+          <span class="seg-btn">Clear</span>
         </label>
       </div>
     </div>
 
-    <div class="section">
-      <div class="slider-row">
-        <label class="section-label">Sensitivity</label>
-        <span id="sens-val" class="slider-val">1.0</span>
+    <!-- Section 4: Controls (Sensitivity, Opacity, Resolution) -->
+    <div class="card card-controls">
+      <div class="slider-group">
+        <div class="control-header">
+          <span class="control-label">Sensitivity</span>
+          <span id="sens-val" class="value-pill">1.0</span>
+        </div>
+        <input type="range" id="sensitivity" class="slider" min="0.1" max="3" step="0.1" value="1.0">
       </div>
-      <input type="range" id="sensitivity" class="slider" min="0.1" max="3" step="0.1" value="1.0">
+
+      <div class="slider-group">
+        <div class="control-header">
+          <span class="control-label">Visualizer Opacity</span>
+          <span id="opac-val" class="value-pill">0.90</span>
+        </div>
+        <input type="range" id="opacity" class="slider" min="0.1" max="1" step="0.05" value="0.9">
+      </div>
+
+      <div class="select-row">
+        <span class="control-label">Sample Resolution</span>
+        <div class="custom-dropdown" id="fft-dropdown">
+          <button type="button" class="dropdown-trigger" id="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span id="selected-fft-text">512 Balanced</span>
+            <svg class="select-chevron" width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M4.2 6.2a.8.8 0 0 1 1.1 0L8 8.9l2.7-2.7a.8.8 0 1 1 1.1 1.1l-3.3 3.3a.8.8 0 0 1-1.1 0L4.2 7.3a.8.8 0 0 1 0-1.1z"/>
+            </svg>
+          </button>
+          
+          <div class="dropdown-menu hidden" id="dropdown-menu" role="listbox">
+            <div class="dropdown-option" data-value="128">
+              <span>128 Fast</span>
+              <svg class="check-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7.5"/></svg>
+            </div>
+            <div class="dropdown-option" data-value="256">
+              <span>256 Crisp</span>
+              <svg class="check-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7.5"/></svg>
+            </div>
+            <div class="dropdown-option selected" data-value="512">
+              <span>512 Balanced</span>
+              <svg class="check-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7.5"/></svg>
+            </div>
+            <div class="dropdown-option" data-value="1024">
+              <span>1024 High</span>
+              <svg class="check-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7.5"/></svg>
+            </div>
+            <div class="dropdown-option" data-value="2048">
+              <span>2048 Ultra</span>
+              <svg class="check-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7.5"/></svg>
+            </div>
+          </div>
+
+          <!-- Underlying select element kept for full programmatic compatibility -->
+          <select id="fftSize" class="fft-select-hidden">
+            <option value="128">128 Fast</option>
+            <option value="256">256 Crisp</option>
+            <option value="512" selected>512 Balanced</option>
+            <option value="1024">1024 High</option>
+            <option value="2048">2048 Ultra</option>
+          </select>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-      <div class="slider-row">
-        <label class="section-label">Opacity</label>
-        <span id="opac-val" class="slider-val">0.9</span>
-      </div>
-      <input type="range" id="opacity" class="slider" min="0.1" max="1" step="0.05" value="0.9">
-    </div>
-
-    <div class="section">
-      <div class="slider-row">
-        <label class="section-label">FFT Size</label>
-      </div>
-      <select id="fftSize" class="fft-select">
-        <option value="128">128</option>
-        <option value="256">256</option>
-        <option value="512" selected>512</option>
-        <option value="1024">1024</option>
-        <option value="2048">2048</option>
-      </select>
-    </div>
-
+    <!-- Error message banner -->
     <div id="error-msg" class="error hidden"></div>
   </div>
 
